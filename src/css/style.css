@@ -1,0 +1,447 @@
+.login-section{
+    padding-top: 4.8rem;
+    background-color: var(--bg-color-first);
+    /* height: 100vh; */
+    align-items: center;
+}
+.login-form{
+    padding-inline: 2rem;
+    background-color: var(--bg-color-first);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: 100%;
+}
+.card-login{
+    background-color: var(--color-white);
+}
+label{
+    font-size: .9rem;
+    padding-bottom: .2rem;
+    color: var(--color-primary);
+}
+.navbar-toggler{
+    border-color: var(--color-white) !important;
+    background-color: var(--color-white) !important;
+    font-size: 1rem;
+}
+.modal .modal-body ,.modal .modal-header,.modal .modal-footer{
+    background-color: var(--bg-color-first);
+}
+.card{
+    background-color: var(--bg-color-cards);
+    border: none;
+}
+.bg-unset{
+    background-color: unset !important;
+}
+/* ================== Home page ========================== */
+.home-section{
+    background: url('../assets/images/home.webp') no-repeat top center/cover;
+    height: 80vh;
+    color: var(--color-white);
+}
+.home-section .overlay{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.courses .card-course:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+.courses .card-course .card-img-top{
+    height: 10rem;
+    object-fit: cover;
+}
+.why-choose-section .card:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+.why-choose-section .card:hover .text-primary , .why-choose-section .card:hover .text-muted{
+    color: var(--color-white) !important;
+}
+/* move buttons above and to the left of the swiper and remove default arrow glyphs */
+.swiper {
+    position: relative;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: -.2rem; /* adjust vertical offset as needed */
+    left: 0;
+    color: var(--color-primary);
+    background: transparent;
+    border: none;
+    padding: .35rem .6rem;
+    margin: 0;
+    transform: none;
+    box-shadow: none;
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* place the "next" button to the right of the "prev" button */
+.swiper-button-next {
+    left: 4rem; /* adjust horizontal spacing as needed */
+}
+/* .swiper-button-prev {
+    right: unset !important;
+    left: 6rem !important;
+} */
+
+/* remove Swiper's default arrow glyphs (Swiper normally injects them via ::after) */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none;
+    content: none;
+}
+
+/* optional: reduce interference from disabled state */
+.swiper-button-disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+.card-description{
+    height: 6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card-title-course{
+    height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* =============================== Courses =============================== */
+.courses-tabs .nav-link{
+    background-color: var(--bg-color-cards) !important;
+    border: none !important;
+    border-radius: 1rem !important;
+    color: var(--bg-color-main) !important;
+    font-weight: bold !important;
+    padding-inline: 1.5rem !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.courses-tabs .nav-link:hover{
+    background-color: var(--color-primary) !important;
+    color: var(--color-on-primary) !important;
+}
+.courses-tabs .nav-link.active{
+    background-color: var(--color-primary) !important;
+    color: var(--color-on-primary) !important;
+}
+/* ===================== Side bar ===================== */
+.sidebar {
+  width: 250px;
+  transition: width 0.3s ease;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  position: fixed;
+  overflow-y: auto;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar .nav-link {
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.sidebar .nav-link:hover ,.sidebar .nav-link.active {
+  background-color: var(--bg-color-main) !important;
+  color: var(--color-on-primary) !important;
+}
+
+.sidebar .nav-link i {
+  font-size: 1.2rem;
+  width: 40px;
+  text-align: center;
+}
+
+.sidebar .nav-link span {
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .nav-link span {
+  display: none;
+}
+
+.main-content {
+  margin-right: 250px;
+  transition: margin-right 0.3s ease;
+  padding: 20px;
+}
+
+.main-content.sidebar-collapsed {
+  margin-right: 80px;
+}
+
+.footer {
+  margin-right: 0;
+  transition: margin-right 0.3s ease;
+}
+
+.main-content.sidebar-collapsed ~ .footer {
+  margin-right: 0;
+}
+
+.theme-switch {
+    position: relative;
+    width: 100px;
+    height: 45px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.switch-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-secondary);
+    border-radius: 50px;
+    padding: 5px 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.switch-label .icon {
+    width: 50px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    z-index: 9;
+    color: var(--bg-color-main);
+}
+
+.switch-label::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 9px;
+    width: 36px;
+    height: 36px;
+    background: var(--color-primary); /* Light blue for active */
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+input:checked + .switch-label::after {
+    left: 55px; /* Move to moon side */
+}
+.custom-badge {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    border-radius: 50px;
+    padding: 5px 15px 5px 5px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-color-main); /* Semi-transparent circle */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+/* ===================== Dashboard ================== */
+
+.bg-badge{
+    background-color: var(--bg-color-primary);
+    border-radius: 4px;
+    padding: .5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-badge .icon{
+    font-size: 1.5rem;
+}
+
+.progress-card {
+  background: var(--bg-color-cards);
+  border: 4px solid #e7b007; /* yellow border */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  position: relative;
+}
+
+.progress-content {
+  padding: 50px 20px;
+}
+
+.progress-content h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.progress-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #8b5e00;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #e7b007;
+  width: 0%; /* dynamic */
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.progress-description {
+  color: #b59a7e;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/*  ================ profile ====================== */
+
+.card-profile{
+    background-color: var(--bg-color-cards);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-profile .card-header{
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    border-radius: 1rem 1rem 0 0;
+    text-align: center;
+}
+.card-profile .profile-img{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--color-white);
+    margin-top: -60px;
+}
+.card-profile .card-body{
+    text-align: center;
+}
+.card-profile .card-body .nav-link {
+    color: var(--bg-color-main) !important;
+    background: var(--bg-color-first);
+    border-radius: .5rem;
+    margin: .2rem 0;
+}
+.card-profile .card-body .nav-link:hover, .card-profile .card-body .nav-link.active {
+    font-weight: bold;
+    background-color: var(--color-primary) !important;
+    color: var(--color-on-primary) !important;  
+}
+.tabs-profile .card .card-body .card-title{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.nav-fatora .nav-link{
+    color: var(--color-primary) !important;
+    border-radius: .5rem;
+    margin: .2rem 0;
+}
+.nav-fatora .nav-link:hover, .nav-fatora .nav-link.active {
+    background-color: var(--color-primary) !important;
+    color: var(--color-on-primary) !important;  
+}
+.socials-share a{
+    color: var(--bg-color-main) !important;
+}
+/* ==================== Media screens ============== */
+
+@media screen and (max-width: 335px) {
+    .theme-switch {
+        position: relative;
+        width: 86px;
+        height: 40px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .main-content {
+        margin-right: 0;
+        padding: 20px 0;
+    }
+    .navbar .container-fluid {
+        padding: 0;
+    }
+    /* Mobile dark mode toggle positioning */
+    .navbar-brand + .theme-switch {
+        margin-right: auto;
+        margin-left: 10px;
+    }
+}
+.question-box {
+    background: var(--color-white);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+.question-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+.result-box {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: none;
+}
+.dark-mode .question-box {
+    background: var(--color-on-primary);
+    border: 1px solid #555;
+}
+.dark-mode .why-choose-section .card-body .text-muted ,.dark-mode .card-course .text-muted {
+    color: var(--color-secondary) !important;
+}
+.dark-mode .color-dark-mode{
+    color: var(--color-secondary) !important;
+}
+.dark-mode .login-section .login-form ,.dark-mode .login-section ,
+.dark-mode .courses ,.dark-mode .subscribe-section{
+    background-color: var(--color-secondary) !important;
+}
