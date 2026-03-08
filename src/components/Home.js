@@ -113,40 +113,40 @@ const Home = () => {
             <h2 className="mb-5 text-center fw-bold"> الصفوف الدراسية </h2>
             <div className="col-lg-4 col-md-6 mb-4">
               <div className="card h-100 card-course" data-aos="fade-up">
-                <a href="">
+                <Link to="/courses">
                   <img src={REGISTER_IMAGE} className="card-img-top" alt="Course 1" />
-                </a>
+                </Link>
                 <div className="card-body">
                   <h5 className="card-title-course fw-bold"> الصف الأول الثانوي</h5>
                   <p className="card-text small text-muted">تعلم أساسيات المواد الدراسية للصف الأول الثانوي بطريقة
                     ممتعة وتفاعلية.</p>
-                  <a href="#" className="btn btn-primary w-100"> عرض الكورسات <i className="fas fa-desktop"></i></a>
+                  <Link to="/courses" className="btn btn-primary w-100"> عرض الكورسات <i className="fas fa-desktop"></i></Link>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 mb-4">
               <div className="card h-100 card-course" data-aos="fade-up" data-aos-delay="100">
-                <a href="">
-                  <img src="/images/register.png" className="card-img-top" alt="Course 1" />
-                </a>
+                <Link to="/courses">
+                  <img src={REGISTER_IMAGE} className="card-img-top" alt="Course 1" />
+                </Link>
                 <div className="card-body">
                   <h5 className="card-title-course fw-bold"> الصف الثاني الثانوي</h5>
                   <p className="card-text small text-muted">تعلم أساسيات المواد الدراسية للصف الثاني الثانوي
                     بطريقة ممتعة وتفاعلية.</p>
-                  <a href="#" className="btn btn-primary w-100"> عرض الكورسات <i className="fas fa-desktop"></i></a>
+                  <Link to="/courses" className="btn btn-primary w-100"> عرض الكورسات <i className="fas fa-desktop"></i></Link>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 mb-4">
               <div className="card h-100 card-course" data-aos="fade-up" data-aos-delay="200">
-                <a href="">
-                  <img src="/images/register.png" className="card-img-top" alt="Course 1" />
-                </a>
+                <Link to="/courses">
+                  <img src={REGISTER_IMAGE} className="card-img-top" alt="Course 1" />
+                </Link>
                 <div className="card-body">
                   <h5 className="card-title-course fw-bold"> الصف الثالث الثانوي</h5>
                   <p className="card-text small text-muted">تعلم أساسيات المواد الدراسية للصف الثالث الثانوي
                     بطريقة ممتعة وتفاعلية.</p>
-                  <a href="#" className="btn btn-primary w-100"> عرض الكورسات <i className="fas fa-desktop"></i></a>
+                  <Link to="/courses" className="btn btn-primary w-100"> عرض الكورسات <i className="fas fa-desktop"></i></Link>
                 </div>
               </div>
             </div>
@@ -161,9 +161,9 @@ const Home = () => {
             <div className="swiper-wrapper pt-5">
               <div className="swiper-slide d-flex align-items-stretch">
                 <div className="card h-100 w-100 card-course">
-                  <a href="">
-                    <img src="/images/Login.gif" className="card-img-top" alt="Course 1" />
-                  </a>
+                  <Link to="/course-details">
+                    <img src={LOGIN_GIF} className="card-img-top" alt="Course 1" />
+                  </Link>
                   <div className="card-body">
                     <h5 className="card-title-course fw-bold"> مراجعة شهر نوفمبر اولي ثانوي </h5>
 
@@ -183,9 +183,9 @@ const Home = () => {
 
               <div className="swiper-slide">
                 <div className="card h-100 card-course">
-                  <a href="">
-                    <img src="/images/register.png" className="card-img-top" alt="Course 2" />
-                  </a>
+                  <Link to="/course-details">
+                    <img src={REGISTER_IMAGE} className="card-img-top" alt="Course 2" />
+                  </Link>
                   <div className="card-body">
                     <h5 className="card-title-course fw-bold"> مراجعة شهر نوفمبر ثانية ثانوي </h5>
 
@@ -205,9 +205,9 @@ const Home = () => {
 
               <div className="swiper-slide">
                 <div className="card h-100 card-course">
-                  <a href="">
-                    <img src="/images/register.png" className="card-img-top" alt="Course 3" />
-                  </a>
+                  <Link to="/course-details">
+                    <img src={REGISTER_IMAGE} className="card-img-top" alt="Course 3" />
+                  </Link>
                   <div className="card-body">
                     <h5 className="card-title-course fw-bold"> مراجعة شهر نوفمبر ثالثة ثانوي </h5>
 
@@ -227,9 +227,9 @@ const Home = () => {
 
               <div className="swiper-slide">
                 <div className="card h-100 card-course">
-                  <a href="">
-                    <img src="/images/register.png" className="card-img-top" alt="Course 4" />
-                  </a>
+                  <Link to="/course-details">
+                    <img src={REGISTER_IMAGE} className="card-img-top" alt="Course 4" />
+                  </Link>
                   <div className="card-body">
                     <h5 className="card-title-course fw-bold"> مراجعة شهر نوفمبر ثالثة ثانوي </h5>
 
@@ -275,7 +275,7 @@ const Home = () => {
       <div className="footer p-4">
         <div className="container-fluid pt-4">
           <div className="row justify-content-between">
-            <div className="col-lg-6 col-md-6"><img src="/images/logo.png" alt="img" height="65px" />
+            <div className="col-lg-6 col-md-6"><img src={LOGO_IMAGE} alt="img" height="65px" />
               <p className="pt-4 smallText">
                 منصة تعليمية تهدف الي تعليم الطلاب بأحدث الطرق الحديثة وابسطها
               </p>
@@ -283,16 +283,16 @@ const Home = () => {
             <div className="col-lg-2 col-md-5">
               <p className="smallText mb-2">تواصل معنا من خلال</p>
               <p className="socials">
-                <a className="text-decoration-none px-1" href="" target="_blank" rel="noreferrer">
+                <a className="text-decoration-none px-1" href="https://facebook.com" target="_blank" rel="noreferrer">
                   <i className="fab fs-4 fa-facebook-square"></i>
                 </a>
-                <a className="text-decoration-none px-1" href="" target="_blank" rel="noreferrer">
+                <a className="text-decoration-none px-1" href="https://whatsapp.com" target="_blank" rel="noreferrer">
                   <i className="fab fs-4 fa-whatsapp"></i>
                 </a>
-                <a className="text-decoration-none px-1" href="" target="_blank" rel="noreferrer">
+                <a className="text-decoration-none px-1" href="https://youtube.com" target="_blank" rel="noreferrer">
                   <i className="fab fs-4 fa-youtube-square"></i>
                 </a>
-                <a className="text-decoration-none px-1" href="" target="_blank" rel="noreferrer">
+                <a className="text-decoration-none px-1" href="https://instagram.com" target="_blank" rel="noreferrer">
                   <i className="fab fs-4 fa-instagram"></i>
                 </a>
               </p>
@@ -301,14 +301,14 @@ const Home = () => {
           <div className="row border-top mt-4 linkFooter border-secondary justify-content-between text-start">
             <div className="col-lg-6 col-md-5">
               <p className="pt-3 d-none d-md-block">جميع الحقوق محفوظة &copy;
-                <a href="https://www.facebook.com/mohamed.essa.abdelhamead/">Mohamed Essa</a>
+                <a href="https://www.facebook.com/mohamed.essa.abdelhamead/" target="_blank" rel="noreferrer">Mohamed Essa</a>
               </p>
             </div>
             <div className="col-lg-5 col-md-6 pt-3">
               <div className="d-flex justify-content-end">
                 <div>
-                  <a className="text-decoration-none px-2" href="/privacy-policy">الخصوصية</a>
-                  <a className="text-decoration-none px-2" href="/terms">الشروط والأحكام</a>
+                  <Link className="text-decoration-none px-2" to="/privacy-policy">الخصوصية</Link>
+                  <Link className="text-decoration-none px-2" to="/terms">الشروط والأحكام</Link>
                 </div>
               </div>
             </div>
