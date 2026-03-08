@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { LOGIN_GIF } from '../assets/images';
 
 const Login = () => {
   const [phone, setPhone] = useState('');
@@ -160,7 +161,7 @@ const Login = () => {
           </div>
         </div>
         <div className="card-login text-center w-100 d-none d-lg-block">
-          <img src="/images/Login.gif" className="img-fluid" alt="" />
+          <img src={LOGIN_GIF} className="img-fluid" alt="" />
         </div>
       </div>
       <Footer />

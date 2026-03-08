@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { REGISTER_IMAGE } from '../assets/images';
 
 const Register = () => {
   const [step, setStep] = useState(1);
@@ -263,7 +264,7 @@ const Register = () => {
           </div>
         </div>
         <div className="card-login text-center w-100 d-none d-lg-block">
-          <img src="/images/register.png" className="img-fluid" alt="" />
+          <img src={REGISTER_IMAGE} className="img-fluid" alt="" />
         </div>
       </div>
 
