@@ -1,4 +1,5 @@
 import React from 'react';
+import { LOGO_IMAGE } from '../assets/images';
 
 const Footer = () => {
   return (
@@ -6,7 +7,7 @@ const Footer = () => {
       <div className="container pt-4">
         <div className="row justify-content-between">
           <div className="col-lg-6 col-md-6">
-            <img src="/images/logo.png" alt="img" height="65px" />
+            <img src={LOGO_IMAGE} alt="img" height="65px" />
             <p className="pt-4 smallText">
               منصة تعليمية تهدف الي تعليم الطلاب بأحدث الطرق الحديثة وابسطها
             </p>

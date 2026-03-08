@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { LOGO_IMAGE, REGISTER_IMAGE, LOGIN_GIF } from '../assets/images';
 import '../css/general.css';
 import '../css/style.css';
 
@@ -113,7 +114,7 @@ const Home = () => {
             <div className="col-lg-4 col-md-6 mb-4">
               <div className="card h-100 card-course" data-aos="fade-up">
                 <a href="">
-                  <img src="/images/register.png" className="card-img-top" alt="Course 1" />
+                  <img src={REGISTER_IMAGE} className="card-img-top" alt="Course 1" />
                 </a>
                 <div className="card-body">
                   <h5 className="card-title-course fw-bold"> الصف الأول الثانوي</h5>

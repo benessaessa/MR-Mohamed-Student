@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { LOGO_IMAGE } from '../assets/images';
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -36,7 +37,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
       <div className="container-fluid">
         <Link className="navbar-brand d-flex" to="/">
-          <img src="/images/logo.png" className="navbar-img" alt="" />
+          <img src={LOGO_IMAGE} className="navbar-img" alt="" />
         </Link>
         
         {/* Mobile dark mode toggle - moved outside the brand link */}
