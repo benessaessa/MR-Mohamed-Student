@@ -1,5 +1,6 @@
 import React from 'react';
 import { LOGO_IMAGE } from '../assets/images';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -15,18 +16,18 @@ const Footer = () => {
           <div className="col-lg-2 col-md-5">
             <p className="smallText mb-2">تواصل معنا من خلال</p>
             <p className="socials">
-              <a className="text-decoration-none px-1" href="" target="_blank" rel="noreferrer">
+              <Link className="text-decoration-none px-1" to="" target="_blank" rel="noreferrer">
                 <i className="fab fs-4 fa-facebook-square"></i>
-              </a>
-              <a className="text-decoration-none px-1" href="" target="_blank" rel="noreferrer">
+              </Link>
+              <Link className="text-decoration-none px-1" to="" target="_blank" rel="noreferrer">
                 <i className="fab fs-4 fa-whatsapp"></i>
-              </a>
-              <a className="text-decoration-none px-1" href="" target="_blank" rel="noreferrer">
+              </Link>
+              <Link className="text-decoration-none px-1" to="" target="_blank" rel="noreferrer">
                 <i className="fab fs-4 fa-youtube-square"></i>
-              </a>
-              <a className="text-decoration-none px-1" href="" target="_blank" rel="noreferrer">
+              </Link>
+              <Link className="text-decoration-none px-1" to="" target="_blank" rel="noreferrer">
                 <i className="fab fs-4 fa-instagram"></i>
-              </a>
+              </Link>
             </p>
           </div>
         </div>

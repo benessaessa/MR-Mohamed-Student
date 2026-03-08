@@ -445,3 +445,6 @@ input:checked + .switch-label::after {
 .dark-mode .courses ,.dark-mode .subscribe-section{
     background-color: var(--color-secondary) !important;
 }
+.modal-header .btn-close {
+    display: none;
+}
