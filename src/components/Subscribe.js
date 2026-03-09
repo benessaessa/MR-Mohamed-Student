@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { HOME_IMAGE } from '../assets/images';
+import { FAWRY_IMAGE, HOME_IMAGE } from '../assets/images';
 
 const Subscribe = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [selectedPaymobMethod, setSelectedPaymobMethod] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Initialize AOS if needed
@@ -51,12 +53,40 @@ const Subscribe = () => {
       bsModal.hide();
     }
 
-    // Redirect based on payment method
+    // Redirect based on payment method using React Router navigation
     if (method === 'fawry') {
-      window.location.href = '/fawry';
+      navigate('/fawry');
     } else {
-      window.location.href = `/integration?payment=${method}`;
+      navigate(`/integration?payment=${method}`);
     }
+  };
+
+  // Transfer numbers for each Paymob provider
+  const paymobTransferNumbers = {
+    vodafone: [
+      { number: '01012345678', name: 'أحمد محمد' },
+      { number: '01023456789', name: 'شركة التعليمية' }
+    ],
+    etisalat: [
+      { number: '01112345678', name: 'أحمد محمد' },
+      { number: '01123456789', name: 'شركة التعليمية' }
+    ],
+    orange: [
+      { number: '01212345678', name: 'أحمد محمد' },
+      { number: '01223456789', name: 'شركة التعليمية' }
+    ],
+    we: [
+      { number: '01512345678', name: 'أحمد محمد' },
+      { number: '01523456789', name: 'شركة التعليمية' }
+    ]
+  };
+
+  const handlePaymobSelect = (method) => {
+    setSelectedPaymobMethod(method);
+  };
+
+  const handleBackToPaymobOptions = () => {
+    setSelectedPaymobMethod(null);
   };
 
   const courseData = {
@@ -255,53 +285,120 @@ const Subscribe = () => {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body" style={{ maxHeight: '400px', overflowY: 'auto' }}>
-              <div className="d-grid gap-3">
-                <button className="btn btn-outline-primary" onClick={() => selectPayment('visa')}>
-                  <i className="fab fa-cc-visa me-2"></i>Visa
-                </button>
-                <button className="btn btn-outline-success" data-bs-toggle="collapse" data-bs-target="#paymobOptions" aria-expanded="false" aria-controls="paymobOptions">
-                  <i className="fas fa-mobile-alt me-2"></i>Paymob
-                </button>
-                <div className="collapse" id="paymobOptions">
-                  <div className="row g-3 mt-2">
-                    <div className="col-6">
-                      <div className="card shadow-sm text-center border-0 bg-light" onClick={() => selectPayment('paymob-vodafone')} style={{ cursor: 'pointer', transition: 'all 0.3s ease', borderRadius: '15px' }}>
-                        <div className="card-body py-4">
-                          <i className="fas fa-mobile fa-3x text-danger mb-3"></i>
-                          <p className="mb-0 fw-bold text-dark">Vodafone Cash</p>
+              {/* Show transfer numbers table if a Paymob method is selected */}
+              {selectedPaymobMethod ? (
+                <div>
+                  <button 
+                    className="btn btn-link text-decoration-none mb-3" 
+                    onClick={handleBackToPaymobOptions}
+                  >
+                    <i className="fas fa-arrow-right me-1"></i> رجوع
+                  </button>
+                  <div className="alert alert-success">
+                    <i className="fas fa-check-circle me-2"></i>
+                    <strong>المبلغ المطلوب: {courseData.price} جنية</strong>
+                  </div>
+                  <div className="table-responsive">
+                    <table className="table table-bordered table-hover">
+                      <thead className="table-success">
+                        <tr>
+                          <th className="p-3" scope="col">#</th>
+                          <th className="p-3" scope="col">رقم الهاتف</th>
+                          <th className="p-3" scope="col">الاسم</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {paymobTransferNumbers[selectedPaymobMethod]?.map((item, index) => (
+                          <tr key={index}>
+                            <td className="p-3">{index + 1}</td>
+                            <td className="p-3 fw-bold">{item.number}</td>
+                            <td className="p-3">{item.name}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="alert alert-warning mt-3">
+                    <i className="fas fa-info-circle me-2"></i>
+                    <strong>خطوات الدفع:</strong>
+                    <ol className="mb-0 mt-2">
+                      <li>قم بتحويل المبلغ ({courseData.price} جنية) لأحد الأرقام المذكورة في الجدول</li>
+                      <li>احتفظ بإيصال التحويل</li>
+                      <li>سيتم تفعيل اشتراكك بعد تأكيد الدفع</li>
+                    </ol>
+                  </div>
+                </div>
+              ) : (
+                <div className="d-grid gap-3">
+                  <button className="btn btn-outline-primary" onClick={() => selectPayment('visa')}>
+                    <i className="fab fa-cc-visa me-2"></i>Visa
+                  </button>
+                  <button 
+                    className="btn btn-outline-success" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#paymobOptions" 
+                    aria-expanded="false" 
+                    aria-controls="paymobOptions"
+                  >
+                    <i className="fas fa-mobile-alt me-2"></i>Paymob
+                  </button>
+                  <div className="collapse" id="paymobOptions">
+                    <div className="row g-3 mt-2">
+                      <div className="col-6">
+                        <div 
+                          className="card shadow-sm text-center border-0 bg-light" 
+                          onClick={() => handlePaymobSelect('vodafone')} 
+                          style={{ cursor: 'pointer', transition: 'all 0.3s ease', borderRadius: '15px' }}
+                        >
+                          <div className="card-body py-4">
+                            <i className="fas fa-mobile fa-3x text-danger mb-3"></i>
+                            <p className="mb-0 fw-bold text-dark">Vodafone Cash</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-6">
-                      <div className="card shadow-sm text-center border-0 bg-light" onClick={() => selectPayment('paymob-etisalat')} style={{ cursor: 'pointer', transition: 'all 0.3s ease', borderRadius: '15px' }}>
-                        <div className="card-body py-4">
-                          <i className="fas fa-mobile fa-3x text-primary mb-3"></i>
-                          <p className="mb-0 fw-bold text-dark">Etisalat</p>
+                      <div className="col-6">
+                        <div 
+                          className="card shadow-sm text-center border-0 bg-light" 
+                          onClick={() => handlePaymobSelect('etisalat')} 
+                          style={{ cursor: 'pointer', transition: 'all 0.3s ease', borderRadius: '15px' }}
+                        >
+                          <div className="card-body py-4">
+                            <i className="fas fa-mobile fa-3x text-primary mb-3"></i>
+                            <p className="mb-0 fw-bold text-dark">Etisalat</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-6">
-                      <div className="card shadow-sm text-center border-0 bg-light" onClick={() => selectPayment('paymob-orange')} style={{ cursor: 'pointer', transition: 'all 0.3s ease', borderRadius: '15px' }}>
-                        <div className="card-body py-4">
-                          <i className="fas fa-mobile fa-3x text-warning mb-3"></i>
-                          <p className="mb-0 fw-bold text-dark">Orange</p>
+                      <div className="col-6">
+                        <div 
+                          className="card shadow-sm text-center border-0 bg-light" 
+                          onClick={() => handlePaymobSelect('orange')} 
+                          style={{ cursor: 'pointer', transition: 'all 0.3s ease', borderRadius: '15px' }}
+                        >
+                          <div className="card-body py-4">
+                            <i className="fas fa-mobile fa-3x text-warning mb-3"></i>
+                            <p className="mb-0 fw-bold text-dark">Orange</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-6">
-                      <div className="card shadow-sm text-center border-0 bg-light" onClick={() => selectPayment('paymob-we')} style={{ cursor: 'pointer', transition: 'all 0.3s ease', borderRadius: '15px' }}>
-                        <div className="card-body py-4">
-                          <i className="fas fa-wallet fa-3x text-info mb-3"></i>
-                          <p className="mb-0 fw-bold text-dark">We Wallet</p>
+                      <div className="col-6">
+                        <div 
+                          className="card shadow-sm text-center border-0 bg-light" 
+                          onClick={() => handlePaymobSelect('we')} 
+                          style={{ cursor: 'pointer', transition: 'all 0.3s ease', borderRadius: '15px' }}
+                        >
+                          <div className="card-body py-4">
+                            <i className="fas fa-wallet fa-3x text-info mb-3"></i>
+                            <p className="mb-0 fw-bold text-dark">We Wallet</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <button className="btn btn-outline-warning" onClick={() => selectPayment('fawry')}>
+                    <img src={FAWRY_IMAGE} alt="Fawry" style={{ width: '20px', height: '20px', marginLeft: '8px' }} /> Fawry
+                  </button>
                 </div>
-                <button className="btn btn-outline-warning" onClick={() => selectPayment('fawry')}>
-                  <img src="/images/fawry.png" alt="Fawry" style={{ width: '20px', height: '20px', marginLeft: '8px' }} /> Fawry
-                </button>
-              </div>
+              )}
             </div>
           </div>
         </div>

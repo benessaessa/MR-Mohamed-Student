@@ -10,6 +10,7 @@ import MyCourses from './components/MyCourses';
 import Exam from './components/Exam';
 import Subscribe from './components/Subscribe';
 import Fawry from './components/Fawry';
+import Paymob from './components/Paymob';
 import RequestsCourses from './components/RequestsCourses';
 import Notifications from './components/Notifications';
 import ScrollToTop from './components/ScrollToTop';
@@ -32,6 +33,12 @@ function App() {
           <Route path="/exam" element={<Exam />} />
           <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/fawry" element={<Fawry />} />
+          <Route path="/paymob" element={<Paymob />} />
+          <Route path="/paymob-vodafone" element={<Paymob />} />
+          <Route path="/paymob-etisalat" element={<Paymob />} />
+          <Route path="/paymob-orange" element={<Paymob />} />
+          <Route path="/paymob-we" element={<Paymob />} />
+          <Route path="/integration" element={<Paymob />} />
           <Route path="/requests-courses" element={<RequestsCourses />} />
           <Route path="/notifications" element={<Notifications />} />
         </Routes>
