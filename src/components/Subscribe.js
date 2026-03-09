@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { HOME_IMAGE } from '../assets/images';
 
 const Subscribe = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -66,7 +67,7 @@ const Subscribe = () => {
     startDate: '10 مارس 2025',
     students: 150,
     price: 100,
-    image: '/images/home.webp'
+    image: HOME_IMAGE
   };
 
   const invoices = [

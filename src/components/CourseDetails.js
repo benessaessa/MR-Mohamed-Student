@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { HOME_IMAGE } from '../assets/images';
 
 const CourseDetails = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -97,7 +98,7 @@ const CourseDetails = () => {
             {/* Course Image and Basic Info */}
             <div className="col-lg-8">
               <div className="card mb-4">
-                <img id="courseVideo" className="card-img-top" src="/images/home.webp" alt="Course Image" />
+<img id="courseVideo" className="card-img-top" src={HOME_IMAGE} alt="Course Image" />
                 <div className="card-body">
                   <h1 className="card-title fw-bold mb-3">مراجعة شهر نوفمبر اولي ثانوي</h1>
                   <p className="card-text lead">دورة شاملة تغطي أهم الموضوعات مع شروحات مبسطة وتمارين تطبيقية ومراجعات سريعة لتثبيت المعلومات.</p>
